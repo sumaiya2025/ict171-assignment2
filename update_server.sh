@@ -1,9 +1,9 @@
+#!/bin/bash
+
 # Linux System Maintenance and SSL Setup Script
 # Created by Sumaiya Tabassum - ICT171 Assignment 2
 
-
 echo "Welcome to Sumaiya's Linux Management Script"
-
 
 # Step 1: Display Current Directory
 echo "Current working directory:"
@@ -53,12 +53,13 @@ sudo apt update
 echo "Running system upgrade (apt upgrade)"
 sudo apt upgrade -y
 
-Install Nginx
+# Step 13: Install Nginx
+echo "Installing Nginx..."
 sudo apt-get install nginx -y || { echo "Nginx installation failed"; exit 1; }
 sudo systemctl start nginx
 sudo systemctl enable nginx
 
-# Step 13: Install Certbot and SSL Certificate (For securing the website)
+# Step 14: Install Certbot and SSL Certificate (For securing the website)
 echo "Installing Certbot and setting up SSL certificate..."
 sudo apt-get install software-properties-common -y
 sudo add-apt-repository universe -y
@@ -66,11 +67,11 @@ sudo add-apt-repository ppa:certbot/certbot -y
 sudo apt-get update
 sudo apt-get install certbot python3-certbot-nginx -y
 
-# Step 14: Show Disk Space Usage
+# Step 15: Show Disk Space Usage
 echo "Disk space usage:"
 df -h
 
-# Step 15: Show Memory Usage
+# Step 16: Show Memory Usage
 echo "Memory usage:"
 free -h
 
